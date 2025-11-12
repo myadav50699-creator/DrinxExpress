@@ -1,18 +1,22 @@
 
-
-
 <!doctype html>
 <html lang="en">
 <head>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>DrinxExpress — Menu, Cart & WhatsApp Checkout</title>
+<title>DrinxExpress — Party Menu & WhatsApp Checkout</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#060606;--card:#0f0f10;--muted:#cfcfcf;--accent:#ff4646;--gold:#d4af37;--glass:rgba(255,255,255,0.03)}
+:root{
+  --bg:#0a0a0a;
+  --card:#1b1b1f;
+  --muted:#cfcfcf;
+  --accent:#ff00ff;
+  --gold:#ffdd00;
+  --glass:rgba(255,255,255,0.05);
+}
 *{box-sizing:border-box;font-family:'Poppins',sans-serif;margin:0;padding:0}
-body{background:linear-gradient(180deg,#050505,#0c0c0c);color:#fff;min-height:100vh}
+body{background:linear-gradient(180deg,#0a0a0a,#111);color:#fff;min-height:100vh}
 .container{max-width:1100px;margin:12px auto;padding:14px}
 .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:10px}
 .logo{display:flex;gap:12px;align-items:center}
@@ -23,19 +27,20 @@ body{background:linear-gradient(180deg,#050505,#0c0c0c);color:#fff;min-height:10
 .input{padding:10px;border-radius:8px;border:1px solid var(--glass);background:transparent;color:#fff;flex:1}
 .select{padding:10px;border-radius:8px;border:1px solid var(--glass);background:transparent;color:#fff;width:160px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
-.card{background:linear-gradient(180deg,var(--card),#0b0b0b);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);box-shadow:0 8px 24px rgba(0,0,0,0.6)}
-.card img{width:100%;height:150px;object-fit:cover;border-radius:8px;margin-bottom:10px}
+.card{background:linear-gradient(180deg,var(--card),#0b0b0b);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);box-shadow:0 8px 24px rgba(255,0,255,0.4)}
+.card img{width:100%;height:150px;object-fit:cover;border-radius:8px;margin-bottom:10px;transition:transform 0.3s}
+.card img:hover{transform:scale(1.05)}
 .card h3{font-size:1rem;margin-bottom:6px}
 .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .price{font-weight:700;color:var(--gold)}
 .small{font-size:0.85rem;color:var(--muted)}
-.fab{position:fixed;right:14px;bottom:14px;width:60px;height:60px;border-radius:999px;background:linear-gradient(180deg,#25D366,#1DA851);display:flex;align-items:center;justify-content:center;box-shadow:0 16px 36px rgba(0,0,0,0.6);z-index:120;cursor:pointer;border:3px solid rgba(255,255,255,0.04)}
+.fab{position:fixed;right:14px;bottom:14px;width:60px;height:60px;border-radius:999px;background:linear-gradient(180deg,#ff00ff,#ff0080);display:flex;align-items:center;justify-content:center;box-shadow:0 16px 36px rgba(255,0,255,0.6);z-index:120;cursor:pointer;border:3px solid rgba(255,255,255,0.04)}
 .cart-panel{position:fixed;right:14px;bottom:86px;width:380px;max-width:96%;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;padding:12px;box-shadow:0 18px 50px rgba(0,0,0,0.6);z-index:150;border:1px solid var(--glass);display:none;flex-direction:column;gap:10px;max-height:80vh;overflow:auto}
 .cart-item{display:flex;gap:10px;align-items:center;border-bottom:1px solid rgba(255,255,255,0.02);padding:8px 0}
 .cart-item img{width:64px;height:48px;object-fit:cover;border-radius:6px}
 .qty{width:62px;padding:6px;border-radius:6px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff}
 .checkout-row{display:flex;gap:8px;align-items:center}
-.btn-primary{background:linear-gradient(90deg,var(--accent),#ff8a5b);padding:10px 12px;border-radius:10px;border:0;color:#111;font-weight:700;cursor:pointer}
+.btn-primary{background:linear-gradient(90deg,var(--accent),#ff0080);padding:10px 12px;border-radius:10px;border:0;color:#111;font-weight:700;cursor:pointer}
 .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:9px 10px;border-radius:8px;color:var(--muted);cursor:pointer}
 .footer{margin-top:14px;text-align:center;color:var(--muted);font-size:0.86rem;padding-bottom:22px}
 .pulse{animation:pulse 1.8s infinite}
@@ -50,7 +55,7 @@ body{background:linear-gradient(180deg,#050505,#0c0c0c);color:#fff;min-height:10
       <div class="box">DX</div>
       <div>
         <div style="font-weight:700;font-size:1rem">DrinxExpress</div>
-        <div class="small">Navi Mumbai • Fast & Discreet Delivery</div>
+        <div class="small">Mumbai • Party Vibes • Fast Delivery</div>
       </div>
     </div>
     <div class="cta">
@@ -65,12 +70,10 @@ body{background:linear-gradient(180deg,#050505,#0c0c0c);color:#fff;min-height:10
   <div class="footer">© 2025 DrinxExpress • Orders via WhatsApp • Buyer must confirm age & ID on delivery</div>
 </div>
 
-<!-- Floating cart / order button -->
 <div class="fab" id="openCart" title="Open Cart">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4h-2l-3 9v9h20v-9l-3-9h-2"/></svg>
 </div>
 
-<!-- Cart panel -->
 <div class="cart-panel" id="cartPanel" aria-hidden="true">
   <div style="display:flex;justify-content:space-between;align-items:center">
     <div style="font-weight:700">Cart — DrinxExpress</div>
@@ -94,35 +97,18 @@ body{background:linear-gradient(180deg,#050505,#0c0c0c);color:#fff;min-height:10
 </div>
 
 <script>
-/* CONFIG */
-const WA_NUMBER = '919324077245'; // change to your WhatsApp number (with country code) if needed
-const COMMISSION = 300; // flat per order
+const WA_NUMBER = '919324077245'; 
+const COMMISSION = 300;
 
-/* PRODUCT LIST: sample HD images (Unsplash / Wikimedia). Add more SKUs as needed. */
 const products = [
   {id:1, category:'liquor', name:'Royal Stag 750ml', base:1199, img:'https://images.unsplash.com/photo-1604335399105-8b9b6b1b6f0b?auto=format&fit=crop&w=900&q=60'},
   {id:2, category:'liquor', name:'Blenders Pride 750ml', base:1599, img:'https://images.unsplash.com/photo-1612736871450-0b3b7a1f7b17?auto=format&fit=crop&w=900&q=60'},
-  {id:3, category:'liquor', name:"Officer's Choice 750ml", base:999, img:'https://images.unsplash.com/photo-1580077121728-8bfa3d7d0f6e?auto=format&fit=crop&w=900&q=60'},
-  {id:4, category:'liquor', name:'Old Monk Rum 750ml', base:799, img:'https://images.unsplash.com/photo-1541281373-ec4bf76d8b4c?auto=format&fit=crop&w=900&q=60'},
-  {id:5, category:'liquor', name:'Imperial Blue 750ml', base:1150, img:'https://images.unsplash.com/photo-1510627498534-cf7e9002facc?auto=format&fit=crop&w=900&q=60'},
-  {id:6, category:'liquor', name:'Magic Moments Vodka 750ml', base:799, img:'https://images.unsplash.com/photo-1541534401786-1f4d3c11f8f2?auto=format&fit=crop&w=900&q=60'},
-  {id:7, category:'beer', name:'Kingfisher Draught 650ml', base:199, img:'https://images.unsplash.com/photo-1551022370-cd3d6be7f6f7?auto=format&fit=crop&w=900&q=60'},
-  {id:8, category:'beer', name:'Heineken 330ml', base:249, img:'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=60'},
-  {id:9, category:'liquor', name:"Paul John Single Malt 750ml", base:7999, img:'https://images.unsplash.com/photo-1524594154906-6ad65f64b4a3?auto=format&fit=crop&w=900&q=60'},
-  {id:10, category:'liquor', name:'Glenlivet 750ml (Imported)', base:5999, img:'https://images.unsplash.com/photo-1546418525-0d46f1ecb3d9?auto=format&fit=crop&w=900&q=60'},
-
-  /* Cigarettes common */
-  {id:100, category:'cigarette', name:'Gold Flake Kings (20s)', base:175, img:'https://upload.wikimedia.org/wikipedia/commons/8/80/Gold_Flake.JPG'},
-  {id:101, category:'cigarette', name:'Marlboro Red (20s)', base:260, img:'https://m.media-amazon.com/images/I/311auNW6xwL.jpg'},
-  {id:102, category:'cigarette', name:'Four Square (20s)', base:150, img:'https://dms.mydukaan.io/original/jpeg/media/a668f93d-c490-4cdb-9011-0e17690f7c11.jpeg'},
-  {id:103, category:'cigarette', name:'Classic (20s)', base:140, img:'https://dms.mydukaan.io/original/jpeg/644186/a5f58abf-83e1-46a3-ba0e-14da2f16102b.png'},
-  {id:104, category:'cigarette', name:'Benson & Hedges (20s)', base:300, img:'https://images.unsplash.com/photo-1617191518152-72b7d6ecb2c2?auto=format&fit=crop&w=900&q=60'},
-  {id:105, category:'cigarette', name:'Red & White (20s)', base:120, img:'https://images.unsplash.com/photo-1585155772361-1f6c5b3b7f9a?auto=format&fit=crop&w=900&q=60'},
-  {id:106, category:'cigarette', name:'Navy Cut (20s)', base:110, img:'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=60'},
-  {id:107, category:'cigarette', name:'Gold Flake Premium (20s)', base:200, img:'https://images.unsplash.com/photo-1600180758890-cc2b0b98b2d3?auto=format&fit=crop&w=900&q=60'}
+  {id:3, category:'cigarette', name:'Marlboro Red (20s)', base:260, img:'https://m.media-amazon.com/images/I/311auNW6xwL.jpg'},
+  {id:4, category:'cigarette', name:'Gold Flake Kings (20s)', base:175, img:'https://upload.wikimedia.org/wikipedia/commons/8/80/Gold_Flake.JPG'},
+  {id:5, category:'beer', name:'Kingfisher Draught 650ml', base:199, img:'https://images.unsplash.com/photo-1551022370-cd3d6be7f6f7?auto=format&fit=crop&w=900&q=60'},
+  {id:6, category:'beer', name:'Heineken 330ml', base:249, img:'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=60'}
 ];
 
-/* CART management (localStorage) */
 let cart = JSON.parse(localStorage.getItem('dx_cart') || '[]');
 const grid = document.getElementById('menu');
 const cartPanel = document.getElementById('cartPanel');
@@ -136,20 +122,18 @@ commissionEl.innerText = '₹' + COMMISSION.toLocaleString();
 
 function saveCart(){ localStorage.setItem('dx_cart', JSON.stringify(cart)); renderCart(); }
 
-// Render products grid
 function renderProducts(list = products){
   grid.innerHTML = '';
   list.forEach(p => {
     const card = document.createElement('article');
     card.className = 'card';
-    const final = p.base; // base used, commission added at order-level
     card.innerHTML = `
       <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/800x500?text=Image'"/>
       <h3>${p.name}</h3>
       <div class="small">${p.category.charAt(0).toUpperCase() + p.category.slice(1)}</div>
       <div style="margin-top:8px;display:flex;justify-content:space-between;align-items:center">
         <div>
-          <div class="price">₹${(final).toLocaleString()}</div>
+          <div class="price">₹${(p.base).toLocaleString()}</div>
           <div class="small">Base: ₹${p.base.toLocaleString()}</div>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px">
@@ -163,54 +147,37 @@ function renderProducts(list = products){
 }
 renderProducts();
 
-// Search & filter
 document.getElementById('search').addEventListener('input', function(){
   const q = this.value.trim().toLowerCase();
   const f = document.getElementById('filter').value;
-  const out = products.filter(p => {
-    if(f !== 'all' && p.category !== f) return false;
-    return p.name.toLowerCase().includes(q);
-  });
-  renderProducts(out);
+  renderProducts(products.filter(p => (f==='all'||p.category===f) && p.name.toLowerCase().includes(q)));
 });
 document.getElementById('filter').addEventListener('change', ()=> document.getElementById('search').dispatchEvent(new Event('input')));
 
-// CART UI
-document.getElementById('openCart').addEventListener('click', openCart);
-document.getElementById('closeCart').addEventListener('click', closeCart);
+document.getElementById('openCart').addEventListener('click', ()=>{cartPanel.style.display='flex';cartPanel.setAttribute('aria-hidden','false'); renderCart();});
+document.getElementById('closeCart').addEventListener('click', ()=>{cartPanel.style.display='none';cartPanel.setAttribute('aria-hidden','true');});
 document.getElementById('clearCart').addEventListener('click', function(){ if(confirm('Clear cart?')){ cart=[]; saveCart(); }});
 document.getElementById('checkout').addEventListener('click', checkoutProcess);
 
-function openCart(){ cartPanel.style.display = 'flex'; cartPanel.setAttribute('aria-hidden','false'); renderCart(); }
-function closeCart(){ cartPanel.style.display = 'none'; cartPanel.setAttribute('aria-hidden','true'); }
-
 function addToCart(id){
-  const p = products.find(x=>x.id===id);
-  if(!p) return;
+  const p = products.find(x=>x.id===id); if(!p) return;
   const exist = cart.find(c=>c.id===id);
   if(exist) exist.qty++;
   else cart.push({id:p.id,name:p.name,base:p.base,img:p.img,qty:1});
   saveCart();
-  openCart();
 }
 
-function quickOrder(id){
-  addToCart(id);
-  // immediately open checkout
-  setTimeout(()=> { openCart(); document.getElementById('checkout').scrollIntoView({behavior:'smooth',block:'center'}); }, 160);
-}
+function quickOrder(id){ addToCart(id); setTimeout(()=> { openCart(); document.getElementById('checkout').scrollIntoView({behavior:'smooth',block:'center'}); }, 160); }
 
 function renderCart(){
-  cartItemsEl.innerHTML = '';
-  if(cart.length === 0){ cartEmpty.style.display='block'; subtotalEl.innerText='₹0'; totalEl.innerText='₹0'; return; }
+  cartItemsEl.innerHTML='';
+  if(cart.length===0){ cartEmpty.style.display='block'; subtotalEl.innerText='₹0'; totalEl.innerText='₹0'; return; }
   cartEmpty.style.display='none';
-  let subtotal = 0;
-  cart.forEach(item => {
-    subtotal += item.base * item.qty;
-    const div = document.createElement('div');
-    div.className = 'cart-item';
-    div.innerHTML = `
-      <img src="${item.img}" onerror="this.src='https://via.placeholder.com/150?text=Image'"/>
+  let subtotal=0;
+  cart.forEach(item=>{
+    subtotal+=item.base*item.qty;
+    const div=document.createElement('div'); div.className='cart-item';
+    div.innerHTML=`<img src="${item.img}" onerror="this.src='https://via.placeholder.com/150?text=Image'"/>
       <div style="flex:1">
         <div style="font-weight:700">${item.name}</div>
         <div class="small">₹${item.base.toLocaleString()} x ${item.qty} = ₹${(item.base*item.qty).toLocaleString()}</div>
@@ -218,72 +185,35 @@ function renderCart(){
       <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end">
         <input class="qty" type="number" min="1" value="${item.qty}" onchange="updateQty(${item.id}, this.value)" />
         <button class="btn-ghost" onclick="removeItem(${item.id})">Remove</button>
-      </div>
-    `;
+      </div>`;
     cartItemsEl.appendChild(div);
   });
-  subtotalEl.innerText = '₹' + subtotal.toLocaleString();
-  const total = subtotal + COMMISSION;
-  totalEl.innerText = '₹' + total.toLocaleString();
+  subtotalEl.innerText='₹'+subtotal.toLocaleString();
+  totalEl.innerText='₹'+(subtotal+COMMISSION).toLocaleString();
 }
 
-function updateQty(id, val){ const it=cart.find(c=>c.id===id); if(!it) return; it.qty = Math.max(1, Number(val)||1); saveCart(); }
-function removeItem(id){ cart = cart.filter(c=>c.id!==id); saveCart(); }
+function updateQty(id,val){ const it=cart.find(c=>c.id===id); if(!it) return; it.qty=Math.max(1,Number(val)||1); saveCart(); }
+function removeItem(id){ cart=cart.filter(c=>c.id!==id); saveCart(); }
 
-// Checkout flow: collect customer details then produce wa.me link with cart summary and location
 async function checkoutProcess(){
-  if(cart.length === 0){ alert('Cart is empty'); return; }
-  // Collect customer info via prompt-friendly UI (simple)
-  const name = prompt('Enter your name (for order):');
-  if(!name) return alert('Name required');
-  const phone = prompt('Enter contact mobile number (10 digits):');
-  if(!phone || phone.replace(/\D/g,'').length < 10) return alert('Valid phone required');
-  // Try to get geolocation
-  let coords = null;
+  if(cart.length===0){ alert('Cart is empty'); return; }
+  const name=prompt('Enter your name (for order):'); if(!name) return alert('Name required');
+  const phone=prompt('Enter contact mobile number (10 digits):'); if(!phone || phone.replace(/\D/g,'').length<10) return alert('Valid phone required');
+  let coords=null;
   if(navigator.geolocation){
-    try{
-      coords = await new Promise((res,rej)=>{
-        const opt = {enableHighAccuracy:true,timeout:8000};
-        navigator.geolocation.getCurrentPosition(position=>res(position.coords), err=>res(null), opt);
-      });
-    }catch(e){ coords = null; }
+    try{ coords = await new Promise((res,rej)=>{navigator.geolocation.getCurrentPosition(position=>res(position.coords),err=>res(null),{enableHighAccuracy:true,timeout:8000});}); }catch(e){ coords=null;}
   }
-  // Ask user to enter address / area optionally
-  const address = prompt('Enter delivery address / area (e.g. Vashi, near Big Bazaar). If you allow location, we will attach map link too:', '') || '';
-  // Build cart summary
-  let subtotal = 0;
-  let summary = '';
-  cart.forEach(it=>{
-    const lineTotal = it.base * it.qty;
-    subtotal += lineTotal;
-    summary += `- ${it.name} x ${it.qty} = ₹${lineTotal}%0A`;
-  });
-  const total = subtotal + COMMISSION;
-  // Map link if coords
-  let mapLine = '';
-  if(coords){
-    const gmap = `https://www.google.com/maps/search/?api=1&query=${coords.latitude},${coords.longitude}`;
-    mapLine = `%0ALocation: ${coords.latitude.toFixed(6)},${coords.longitude.toFixed(6)}%0A${gmap}%0A`;
-  }
-  // Final message
-  let msg = `Hi DrinxExpress!%0AI'd like to place an order.%0A%0A*Customer:* ${encodeURIComponent(name)}%0A*Contact:* ${encodeURIComponent(phone)}%0A*Address:* ${encodeURIComponent(address)}%0A%0A*Order Summary:*%0A${summary}%0A*Subtotal:* ₹${subtotal}%0A*Commission:* ₹${COMMISSION}%0A*Total Payable:* ₹${total}%0A${mapLine}%0APlease confirm price & delivery time. Thank you!`;
-  // Open WhatsApp
-  const url = `https://wa.me/${WA_NUMBER}?text=${msg}`;
-  window.open(url, '_blank');
+  const address=prompt('Enter delivery address / area (e.g. Bandra, near Club). If you allow location, map link will attach:', '')||'';
+  let subtotal=0,summary='';
+  cart.forEach(it=>{subtotal+=it.base*it.qty;summary+=`- ${it.name} x ${it.qty} = ₹${it.base*it.qty}%0A`;});
+  const total=subtotal+COMMISSION;
+  let mapLine='';
+  if(coords){const gmap=`https://www.google.com/maps/search/?api=1&query=${coords.latitude},${coords.longitude}`; mapLine=`%0ALocation: ${coords.latitude.toFixed(6)},${coords.longitude.toFixed(6)}%0A${gmap}%0A`; }
+  let msg=`Hi DrinxExpress!%0AI'd like to place an order.%0A%0A*Customer:* ${encodeURIComponent(name)}%0A*Contact:* ${encodeURIComponent(phone)}%0A*Address:* ${encodeURIComponent(address)}%0A%0A*Order Summary:*%0A${summary}%0A*Subtotal:* ₹${subtotal}%0A*Commission:* ₹${COMMISSION}%0A*Total Payable:* ₹${total}%0A${mapLine}%0APlease confirm price & delivery time. Thank you!`;
+  window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`,'_blank');
 }
 
-// On load
-renderCart();
-saveCart();
-
-/* Utility: allow adding many SKUs quickly if you want (not used automatically) */
-function addSampleMany(){
-  for(let i=200;i<240;i++){
-    products.push({id:i,category:'liquor',name:`Sample Liquor ${i}`,base:999,img:'https://images.unsplash.com/photo-1604335399105-8b9b6b1b6f0b?auto=format&fit=crop&w=900&q=60'});
-  }
-  renderProducts();
-}
+renderCart(); saveCart();
 </script>
 </body>
 </html>
-
