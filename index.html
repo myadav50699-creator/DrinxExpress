@@ -1,43 +1,45 @@
 
+
+
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>DrinxExpress — Menu (Liquor & Cigarettes) — Order on WhatsApp</title>
+<title>DrinxExpress — Menu, Cart & WhatsApp Checkout</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#060606;--card:#0f0f10;--muted:#cfcfcf;--accent:#ff4646;--gold:#d4af37;--glass:rgba(255,255,255,0.03)
-}
+:root{--bg:#060606;--card:#0f0f10;--muted:#cfcfcf;--accent:#ff4646;--gold:#d4af37;--glass:rgba(255,255,255,0.03)}
 *{box-sizing:border-box;font-family:'Poppins',sans-serif;margin:0;padding:0}
 body{background:linear-gradient(180deg,#050505,#0c0c0c);color:#fff;min-height:100vh}
-.container{max-width:1100px;margin:16px auto;padding:18px}
-.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.container{max-width:1100px;margin:12px auto;padding:14px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:10px}
 .logo{display:flex;gap:12px;align-items:center}
 .logo .box{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ff8a5b);display:flex;align-items:center;justify-content:center;font-weight:800;color:#111}
-.header .btn{background:var(--gold);padding:10px 14px;border-radius:10px;color:#111;font-weight:700;text-decoration:none}
-.searchbar{margin:12px 0;display:flex;gap:8px}
+.header .cta{display:flex;gap:8px;align-items:center}
+.btn{background:var(--gold);padding:10px 12px;border-radius:10px;color:#111;font-weight:700;text-decoration:none}
+.searchbar{margin:10px 0;display:flex;gap:8px}
 .input{padding:10px;border-radius:8px;border:1px solid var(--glass);background:transparent;color:#fff;flex:1}
-.select{padding:10px;border-radius:8px;border:1px solid var(--glass);background:transparent;color:#fff;width:180px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
+.select{padding:10px;border-radius:8px;border:1px solid var(--glass);background:transparent;color:#fff;width:160px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
 .card{background:linear-gradient(180deg,var(--card),#0b0b0b);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);box-shadow:0 8px 24px rgba(0,0,0,0.6)}
 .card img{width:100%;height:150px;object-fit:cover;border-radius:8px;margin-bottom:10px}
 .card h3{font-size:1rem;margin-bottom:6px}
 .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .price{font-weight:700;color:var(--gold)}
 .small{font-size:0.85rem;color:var(--muted)}
-.whatsapp-float{position:fixed;right:18px;bottom:18px;width:62px;height:62px;border-radius:999px;background:linear-gradient(180deg,#25D366,#1DA851);display:flex;align-items:center;justify-content:center;box-shadow:0 16px 36px rgba(0,0,0,0.6);z-index:65;cursor:pointer;border:3px solid rgba(255,255,255,0.04)}
-.order-panel{position:fixed;right:18px;bottom:92px;width:360px;max-width:96%;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;padding:14px;box-shadow:0 18px 50px rgba(0,0,0,0.6);z-index:80;border:1px solid var(--glass);display:none;flex-direction:column;gap:10px}
+.fab{position:fixed;right:14px;bottom:14px;width:60px;height:60px;border-radius:999px;background:linear-gradient(180deg,#25D366,#1DA851);display:flex;align-items:center;justify-content:center;box-shadow:0 16px 36px rgba(0,0,0,0.6);z-index:120;cursor:pointer;border:3px solid rgba(255,255,255,0.04)}
+.cart-panel{position:fixed;right:14px;bottom:86px;width:380px;max-width:96%;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;padding:12px;box-shadow:0 18px 50px rgba(0,0,0,0.6);z-index:150;border:1px solid var(--glass);display:none;flex-direction:column;gap:10px;max-height:80vh;overflow:auto}
+.cart-item{display:flex;gap:10px;align-items:center;border-bottom:1px solid rgba(255,255,255,0.02);padding:8px 0}
+.cart-item img{width:64px;height:48px;object-fit:cover;border-radius:6px}
+.qty{width:62px;padding:6px;border-radius:6px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff}
+.checkout-row{display:flex;gap:8px;align-items:center}
 .btn-primary{background:linear-gradient(90deg,var(--accent),#ff8a5b);padding:10px 12px;border-radius:10px;border:0;color:#111;font-weight:700;cursor:pointer}
 .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:9px 10px;border-radius:8px;color:var(--muted);cursor:pointer}
-.footer{margin-top:18px;text-align:center;color:var(--muted);font-size:0.9rem;padding-bottom:26px}
-
-/* small */
-@media(max-width:680px){
-  .order-panel{left:12px;right:12px}
-  .card img{height:130px}
-}
+.footer{margin-top:14px;text-align:center;color:var(--muted);font-size:0.86rem;padding-bottom:22px}
+.pulse{animation:pulse 1.8s infinite}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+@media(max-width:680px){.cart-panel{left:12px;right:12px;bottom:86px;width:auto}}
 </style>
 </head>
 <body>
@@ -46,120 +48,119 @@ body{background:linear-gradient(180deg,#050505,#0c0c0c);color:#fff;min-height:10
     <div class="logo">
       <div class="box">DX</div>
       <div>
-        <div style="font-weight:700;font-size:1.05rem">DrinxExpress</div>
-        <div class="small">Navi Mumbai — Fast Delivery</div>
+        <div style="font-weight:700;font-size:1rem">DrinxExpress</div>
+        <div class="small">Navi Mumbai • Fast & Discreet Delivery</div>
       </div>
     </div>
-    <a class="btn" href="#menu">Order Now</a>
-  </div>
-
-  <div class="searchbar">
-    <input id="search" class="input" placeholder="Search product or brand (e.g. Royal Stag, Gold Flake...)" />
-    <select id="filter" class="select">
-      <option value="all">All Categories</option>
-      <option value="liquor">Liquor</option>
-      <option value="cigarette">Cigarette</option>
-    </select>
+    <div class="cta">
+      <input id="search" class="input" placeholder="Search (e.g. Royal Stag, Marlboro...)" style="max-width:340px"/>
+      <select id="filter" class="select"><option value="all">All</option><option value="liquor">Liquor</option><option value="cigarette">Cigarette</option><option value="beer">Beer</option></select>
+      <a class="btn" href="#menu">Menu</a>
+    </div>
   </div>
 
   <div id="menu" class="grid"></div>
 
-  <div class="footer">© 2025 DrinxExpress • Orders via WhatsApp • By ordering you confirm age & local law compliance</div>
+  <div class="footer">© 2025 DrinxExpress • Orders via WhatsApp • Buyer must confirm age & ID on delivery</div>
 </div>
 
-<!-- Whatsapp button -->
-<div class="whatsapp-float" id="whatsappBtn" title="Open Order">
-  <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.672.15-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.447-.52.149-.173.198-.297.298-.497.099-.198.05-.372-.025-.521-.074-.148-.672-1.611-.921-2.218-.243-.579-.487-.5-.672-.51l-.573-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487  .709.306 1.262.489 1.695.626.712.226 1.36.194 1.872.118.57-.085 1.758-.718 2.006-1.411.248-.694.248-1.289.173-1.411-.074-.123-.272-.198-.57-.347z"></path><path d="M20.52 3.48A11.917 11.917 0 0012 0C5.373 0 .002 5.373 0 12c0 2.112.554 4.077 1.605 5.845L0 24l6.42-1.605A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12 0-3.206-1.254-6.209-3.48-8.52z"></path></svg>
+<!-- Floating cart / order button -->
+<div class="fab" id="openCart" title="Open Cart">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4h-2l-3 9v9h20v-9l-3-9h-2"/></svg>
 </div>
 
-<!-- Order panel -->
-<div class="order-panel" id="orderPanel" aria-hidden="true">
-  <header style="display:flex;justify-content:space-between;align-items:center">
-    <div style="font-weight:700">Place Order — DrinxExpress</div>
-    <button id="closePanel" class="btn-ghost">✕</button>
-  </header>
-
-  <div><label class="small">Name</label><input id="o_name" class="input" placeholder="e.g. Mukesh" /></div>
-  <div><label class="small">Phone</label><input id="o_phone" class="input" placeholder="10-digit mobile number" inputmode="numeric" /></div>
-  <div style="display:flex;gap:8px">
-    <div style="flex:1"><label class="small">Product</label><input id="o_product" class="input" readonly /></div>
-    <div style="width:110px"><label class="small">Qty</label><input id="o_qty" class="input" type="number" min="1" value="1" /></div>
+<!-- Cart panel -->
+<div class="cart-panel" id="cartPanel" aria-hidden="true">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <div style="font-weight:700">Cart — DrinxExpress</div>
+    <button id="closeCart" class="btn-ghost">✕</button>
   </div>
-  <div><label class="small">Area / Landmark</label><input id="o_area" class="input" placeholder="e.g. Vashi, near Big Bazaar" /></div>
-  <div><label class="small">Notes</label><textarea id="o_notes" class="input" style="height:70px"></textarea></div>
+  <div id="cartItems"></div>
+  <div id="cartEmpty" class="small" style="text-align:center;color:var(--muted)">Cart is empty — add products to start ordering</div>
 
-  <div style="display:flex;gap:8px">
-    <button id="o_send" class="btn-primary" style="flex:1">Send on WhatsApp</button>
-    <button id="o_clear" class="btn-ghost">Clear</button>
+  <div style="border-top:1px solid rgba(255,255,255,0.03);padding-top:8px">
+    <div style="display:flex;justify-content:space-between" class="small"><div>Subtotal</div><div id="subtotal">₹0</div></div>
+    <div style="display:flex;justify-content:space-between" class="small"><div>Commission (Flat)</div><div id="commission">₹300</div></div>
+    <div style="display:flex;justify-content:space-between;font-weight:700;margin-top:6px"><div>Total</div><div id="total">₹0</div></div>
+    <div style="margin-top:8px" class="small">Delivery time depends on area. Confirm final price on WhatsApp after order.</div>
+    <div style="margin-top:8px;display:flex;gap:8px">
+      <button id="checkout" class="btn-primary" style="flex:1">Checkout on WhatsApp</button>
+      <button id="clearCart" class="btn-ghost">Clear</button>
+    </div>
   </div>
 
-  <div class="small" style="color:var(--muted)">Price shown includes ₹300 commission. Orders are confirmed on WhatsApp — confirm age & ID if required.</div>
+  <div style="margin-top:8px;font-size:0.8rem;color:var(--muted)">We request ID verification at delivery. By ordering you confirm legal age.</div>
 </div>
 
 <script>
-/*
- Products list (representative). 
- basePrice = retailer price (placeholder) -> finalPrice = basePrice + commission
- Commission fixed: 300 (₹)
- Images: free/public images from Unsplash / Wikimedia where available (sample)
- You can edit basePrice values directly here.
-*/
-const COMMISSION = 300;
-const WA_NUMBER = '919324077245'; // change if needed
+/* CONFIG */
+const WA_NUMBER = '919324077245'; // change to your WhatsApp number (with country code) if needed
+const COMMISSION = 300; // flat per order
 
+/* PRODUCT LIST: sample HD images (Unsplash / Wikimedia). Add more SKUs as needed. */
 const products = [
-  /* Liquor: whiskies, rum, vodka, wines (common in Mumbai) */
-  {id:1, category:'liquor', name:'Royal Stag (Whisky) 750ml', basePrice:1199, img:'https://images.unsplash.com/photo-1604335399105-8b9b6b1b6f0b?auto=format&fit=crop&w=800&q=60'},
-  {id:2, category:'liquor', name:'Blenders Pride 750ml', basePrice:1599, img:'https://images.unsplash.com/photo-1612736871450-0b3b7a1f7b17?auto=format&fit=crop&w=800&q=60'},
-  {id:3, category:'liquor', name:'Officer\'s Choice (Whisky) 750ml', basePrice:999, img:'https://images.unsplash.com/photo-1580077121728-8bfa3d7d0f6e?auto=format&fit=crop&w=800&q=60'},
-  {id:4, category:'liquor', name:'Old Monk Rum 750ml', basePrice:799, img:'https://images.unsplash.com/photo-1541281373-ec4bf76d8b4c?auto=format&fit=crop&w=800&q=60'},
-  {id:5, category:'liquor', name:'Imperial Blue 750ml', basePrice:1150, img:'https://images.unsplash.com/photo-1510627498534-cf7e9002facc?auto=format&fit=crop&w=800&q=60'},
-  {id:6, category:'liquor', name:'Magic Moments Vodka 750ml', basePrice:799, img:'https://images.unsplash.com/photo-1541534401786-1f4d3c11f8f2?auto=format&fit=crop&w=800&q=60'},
-  {id:7, category:'liquor', name:'Sula Red Wine 750ml', basePrice:899, img:'https://images.unsplash.com/photo-1545420331-486c6b8e6f1a?auto=format&fit=crop&w=800&q=60'},
-  {id:8, category:'liquor', name:'Glenlivet (Imported) 750ml', basePrice:5999, img:'https://images.unsplash.com/photo-1510627498534-cf7e9002facc?auto=format&fit=crop&w=800&q=60'},
-  {id:9, category:'liquor', name:'Paul John (Indian Single Malt) 750ml', basePrice:7999, img:'https://images.unsplash.com/photo-1524594154906-6ad65f64b4a3?auto=format&fit=crop&w=800&q=60'},
-  {id:10, category:'liquor', name:'Teacher\'s Highland Cream 750ml', basePrice:2899, img:'https://images.unsplash.com/photo-1546418525-0d46f1ecb3d9?auto=format&fit=crop&w=800&q=60'},
-  {id:11, category:'liquor', name:'Kingfisher Draught (Beer) 650ml', basePrice:199, img:'https://images.unsplash.com/photo-1551022370-cd3d6be7f6f7?auto=format&fit=crop&w=800&q=60'},
-  {id:12, category:'liquor', name:'Heineken (Imported Beer) 330ml', basePrice:249, img:'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=60'},
+  {id:1, category:'liquor', name:'Royal Stag 750ml', base:1199, img:'https://images.unsplash.com/photo-1604335399105-8b9b6b1b6f0b?auto=format&fit=crop&w=900&q=60'},
+  {id:2, category:'liquor', name:'Blenders Pride 750ml', base:1599, img:'https://images.unsplash.com/photo-1612736871450-0b3b7a1f7b17?auto=format&fit=crop&w=900&q=60'},
+  {id:3, category:'liquor', name:"Officer's Choice 750ml", base:999, img:'https://images.unsplash.com/photo-1580077121728-8bfa3d7d0f6e?auto=format&fit=crop&w=900&q=60'},
+  {id:4, category:'liquor', name:'Old Monk Rum 750ml', base:799, img:'https://images.unsplash.com/photo-1541281373-ec4bf76d8b4c?auto=format&fit=crop&w=900&q=60'},
+  {id:5, category:'liquor', name:'Imperial Blue 750ml', base:1150, img:'https://images.unsplash.com/photo-1510627498534-cf7e9002facc?auto=format&fit=crop&w=900&q=60'},
+  {id:6, category:'liquor', name:'Magic Moments Vodka 750ml', base:799, img:'https://images.unsplash.com/photo-1541534401786-1f4d3c11f8f2?auto=format&fit=crop&w=900&q=60'},
+  {id:7, category:'beer', name:'Kingfisher Draught 650ml', base:199, img:'https://images.unsplash.com/photo-1551022370-cd3d6be7f6f7?auto=format&fit=crop&w=900&q=60'},
+  {id:8, category:'beer', name:'Heineken 330ml', base:249, img:'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=60'},
+  {id:9, category:'liquor', name:"Paul John Single Malt 750ml", base:7999, img:'https://images.unsplash.com/photo-1524594154906-6ad65f64b4a3?auto=format&fit=crop&w=900&q=60'},
+  {id:10, category:'liquor', name:'Glenlivet 750ml (Imported)', base:5999, img:'https://images.unsplash.com/photo-1546418525-0d46f1ecb3d9?auto=format&fit=crop&w=900&q=60'},
 
-  /* Cigarettes: common India brands */
-  {id:100, category:'cigarette', name:'Gold Flake Kings (20s)', basePrice:175, img:'https://upload.wikimedia.org/wikipedia/commons/8/80/Gold_Flake.JPG'},
-  {id:101, category:'cigarette', name:'Marlboro Red (20s)', basePrice:260, img:'https://m.media-amazon.com/images/I/311auNW6xwL.jpg'},
-  {id:102, category:'cigarette', name:'Four Square (20s)', basePrice:150, img:'https://dms.mydukaan.io/original/jpeg/media/a668f93d-c490-4cdb-9011-0e17690f7c11.jpeg'},
-  {id:103, category:'cigarette', name:'Classic (20s)', basePrice:140, img:'https://dms.mydukaan.io/original/jpeg/644186/a5f58abf-83e1-46a3-ba0e-14da2f16102b.png'},
-  {id:104, category:'cigarette', name:'Benson & Hedges (20s)', basePrice:300, img:'https://images.unsplash.com/photo-1617191518152-72b7d6ecb2c2?auto=format&fit=crop&w=800&q=60'},
-  {id:105, category:'cigarette', name:'Red & White (20s)', basePrice:120, img:'https://images.unsplash.com/photo-1585155772361-1f6c5b3b7f9a?auto=format&fit=crop&w=800&q=60'},
-  {id:106, category:'cigarette', name:'Navy Cut (20s)', basePrice:110, img:'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=60'},
-  {id:107, category:'cigarette', name:'Gold Flake Premium (20s)', basePrice:200, img:'https://images.unsplash.com/photo-1600180758890-cc2b0b98b2d3?auto=format&fit=crop&w=800&q=60'}
+  /* Cigarettes common */
+  {id:100, category:'cigarette', name:'Gold Flake Kings (20s)', base:175, img:'https://upload.wikimedia.org/wikipedia/commons/8/80/Gold_Flake.JPG'},
+  {id:101, category:'cigarette', name:'Marlboro Red (20s)', base:260, img:'https://m.media-amazon.com/images/I/311auNW6xwL.jpg'},
+  {id:102, category:'cigarette', name:'Four Square (20s)', base:150, img:'https://dms.mydukaan.io/original/jpeg/media/a668f93d-c490-4cdb-9011-0e17690f7c11.jpeg'},
+  {id:103, category:'cigarette', name:'Classic (20s)', base:140, img:'https://dms.mydukaan.io/original/jpeg/644186/a5f58abf-83e1-46a3-ba0e-14da2f16102b.png'},
+  {id:104, category:'cigarette', name:'Benson & Hedges (20s)', base:300, img:'https://images.unsplash.com/photo-1617191518152-72b7d6ecb2c2?auto=format&fit=crop&w=900&q=60'},
+  {id:105, category:'cigarette', name:'Red & White (20s)', base:120, img:'https://images.unsplash.com/photo-1585155772361-1f6c5b3b7f9a?auto=format&fit=crop&w=900&q=60'},
+  {id:106, category:'cigarette', name:'Navy Cut (20s)', base:110, img:'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=60'},
+  {id:107, category:'cigarette', name:'Gold Flake Premium (20s)', base:200, img:'https://images.unsplash.com/photo-1600180758890-cc2b0b98b2d3?auto=format&fit=crop&w=900&q=60'}
 ];
 
-// Render product cards
+/* CART management (localStorage) */
+let cart = JSON.parse(localStorage.getItem('dx_cart') || '[]');
 const grid = document.getElementById('menu');
-function render(list){
+const cartPanel = document.getElementById('cartPanel');
+const cartItemsEl = document.getElementById('cartItems');
+const cartEmpty = document.getElementById('cartEmpty');
+const subtotalEl = document.getElementById('subtotal');
+const commissionEl = document.getElementById('commission');
+const totalEl = document.getElementById('total');
+
+commissionEl.innerText = '₹' + COMMISSION.toLocaleString();
+
+function saveCart(){ localStorage.setItem('dx_cart', JSON.stringify(cart)); renderCart(); }
+
+// Render products grid
+function renderProducts(list = products){
   grid.innerHTML = '';
   list.forEach(p => {
-    const finalPrice = Number(p.basePrice) + COMMISSION;
     const card = document.createElement('article');
     card.className = 'card';
+    const final = p.base; // base used, commission added at order-level
     card.innerHTML = `
-      <img src="${p.img}" alt="${p.name}" loading="lazy" />
+      <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/800x500?text=Image'"/>
       <h3>${p.name}</h3>
-      <div class="small">${p.category === 'liquor' ? 'Liquor / Beverage' : 'Cigarette'}</div>
+      <div class="small">${p.category.charAt(0).toUpperCase() + p.category.slice(1)}</div>
       <div style="margin-top:8px;display:flex;justify-content:space-between;align-items:center">
         <div>
-          <div class="price">₹${finalPrice.toLocaleString()}</div>
-          <div class="small">Base: ₹${p.basePrice.toLocaleString()} + ₹${COMMISSION} commission</div>
+          <div class="price">₹${(final).toLocaleString()}</div>
+          <div class="small">Base: ₹${p.base.toLocaleString()}</div>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px">
-          <button class="btn-primary" onclick="startOrder(${p.id})">Order</button>
-          <button class="btn-ghost" onclick="prefill(${p.id})">Quick</button>
+          <button class="btn-primary" onclick="addToCart(${p.id})">Add to Cart</button>
+          <button class="btn-ghost" onclick="quickOrder(${p.id})">Quick</button>
         </div>
       </div>
     `;
     grid.appendChild(card);
   });
 }
-render(products);
+renderProducts();
 
 // Search & filter
 document.getElementById('search').addEventListener('input', function(){
@@ -169,73 +170,118 @@ document.getElementById('search').addEventListener('input', function(){
     if(f !== 'all' && p.category !== f) return false;
     return p.name.toLowerCase().includes(q);
   });
-  render(out);
+  renderProducts(out);
 });
-document.getElementById('filter').addEventListener('change', function(){
-  document.getElementById('search').dispatchEvent(new Event('input'));
-});
+document.getElementById('filter').addEventListener('change', ()=> document.getElementById('search').dispatchEvent(new Event('input')));
 
-// Order panel logic
-const whatsappBtn = document.getElementById('whatsappBtn');
-const orderPanel = document.getElementById('orderPanel');
-const closePanel = document.getElementById('closePanel');
-const o_product = document.getElementById('o_product');
-const o_qty = document.getElementById('o_qty');
+// CART UI
+document.getElementById('openCart').addEventListener('click', openCart);
+document.getElementById('closeCart').addEventListener('click', closeCart);
+document.getElementById('clearCart').addEventListener('click', function(){ if(confirm('Clear cart?')){ cart=[]; saveCart(); }});
+document.getElementById('checkout').addEventListener('click', checkoutProcess);
 
-function showPanel(){ orderPanel.style.display = 'flex'; orderPanel.setAttribute('aria-hidden','false') }
-function hidePanel(){ orderPanel.style.display = 'none'; orderPanel.setAttribute('aria-hidden','true') }
+function openCart(){ cartPanel.style.display = 'flex'; cartPanel.setAttribute('aria-hidden','false'); renderCart(); }
+function closeCart(){ cartPanel.style.display = 'none'; cartPanel.setAttribute('aria-hidden','true'); }
 
-whatsappBtn.addEventListener('click', ()=> { o_product.value=''; o_qty.value='1'; showPanel(); });
-closePanel.addEventListener('click', hidePanel);
-
-function prefill(id){
+function addToCart(id){
   const p = products.find(x=>x.id===id);
   if(!p) return;
-  o_product.value = p.name;
-  o_qty.value = 1;
-  showPanel();
-}
-function startOrder(id){
-  const p = products.find(x=>x.id===id);
-  if(!p) return;
-  o_product.value = p.name;
-  o_qty.value = 1;
-  showPanel();
-  // scroll to panel on mobile
-  setTimeout(()=> orderPanel.scrollIntoView({behavior:'smooth',block:'center'}),120);
+  const exist = cart.find(c=>c.id===id);
+  if(exist) exist.qty++;
+  else cart.push({id:p.id,name:p.name,base:p.base,img:p.img,qty:1});
+  saveCart();
+  openCart();
 }
 
-// Send order: build message with final price (base * qty + commission)
-document.getElementById('o_send').addEventListener('click', function(){
-  const name = document.getElementById('o_name').value.trim();
-  const phone = document.getElementById('o_phone').value.replace(/\D/g,'').trim();
-  const product = document.getElementById('o_product').value.trim();
-  const qty = Number(document.getElementById('o_qty').value) || 1;
-  const area = document.getElementById('o_area').value.trim();
-  const notes = document.getElementById('o_notes').value.trim();
+function quickOrder(id){
+  addToCart(id);
+  // immediately open checkout
+  setTimeout(()=> { openCart(); document.getElementById('checkout').scrollIntoView({behavior:'smooth',block:'center'}); }, 160);
+}
 
-  if(!name){ alert('Please enter name'); return;}
-  if(!phone || phone.length < 10){ alert('Please enter valid phone'); return;}
-  if(!product){ alert('Please select product'); return;}
-  // find base price
-  const prod = products.find(p=>p.name===product) || {};
-  const base = Number(prod.basePrice) || 0;
-  const total = (base * qty) + COMMISSION;
+function renderCart(){
+  cartItemsEl.innerHTML = '';
+  if(cart.length === 0){ cartEmpty.style.display='block'; subtotalEl.innerText='₹0'; totalEl.innerText='₹0'; return; }
+  cartEmpty.style.display='none';
+  let subtotal = 0;
+  cart.forEach(item => {
+    subtotal += item.base * item.qty;
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <img src="${item.img}" onerror="this.src='https://via.placeholder.com/150?text=Image'"/>
+      <div style="flex:1">
+        <div style="font-weight:700">${item.name}</div>
+        <div class="small">₹${item.base.toLocaleString()} x ${item.qty} = ₹${(item.base*item.qty).toLocaleString()}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end">
+        <input class="qty" type="number" min="1" value="${item.qty}" onchange="updateQty(${item.id}, this.value)" />
+        <button class="btn-ghost" onclick="removeItem(${item.id})">Remove</button>
+      </div>
+    `;
+    cartItemsEl.appendChild(div);
+  });
+  subtotalEl.innerText = '₹' + subtotal.toLocaleString();
+  const total = subtotal + COMMISSION;
+  totalEl.innerText = '₹' + total.toLocaleString();
+}
 
-  let msg = `Hi DrinxExpress!%0AI'd like to place an order.%0A%0A*Customer:* ${encodeURIComponent(name)}%0A*Mobile:* ${encodeURIComponent(phone)}%0A*Product:* ${encodeURIComponent(product)}%0A*Qty:* ${encodeURIComponent(qty)}%0A*Base Price per unit:* ₹${base}%0A*Commission:* ₹${COMMISSION}%0A*Total Payable:* ₹${total}%0A*Area:* ${encodeURIComponent(area)}%0A`;
-  if(notes) msg += `%0A*Notes:* ${encodeURIComponent(notes)}%0A`;
-  msg += `%0APlease confirm price & delivery time. Thank you!`;
+function updateQty(id, val){ const it=cart.find(c=>c.id===id); if(!it) return; it.qty = Math.max(1, Number(val)||1); saveCart(); }
+function removeItem(id){ cart = cart.filter(c=>c.id!==id); saveCart(); }
 
+// Checkout flow: collect customer details then produce wa.me link with cart summary and location
+async function checkoutProcess(){
+  if(cart.length === 0){ alert('Cart is empty'); return; }
+  // Collect customer info via prompt-friendly UI (simple)
+  const name = prompt('Enter your name (for order):');
+  if(!name) return alert('Name required');
+  const phone = prompt('Enter contact mobile number (10 digits):');
+  if(!phone || phone.replace(/\D/g,'').length < 10) return alert('Valid phone required');
+  // Try to get geolocation
+  let coords = null;
+  if(navigator.geolocation){
+    try{
+      coords = await new Promise((res,rej)=>{
+        const opt = {enableHighAccuracy:true,timeout:8000};
+        navigator.geolocation.getCurrentPosition(position=>res(position.coords), err=>res(null), opt);
+      });
+    }catch(e){ coords = null; }
+  }
+  // Ask user to enter address / area optionally
+  const address = prompt('Enter delivery address / area (e.g. Vashi, near Big Bazaar). If you allow location, we will attach map link too:', '') || '';
+  // Build cart summary
+  let subtotal = 0;
+  let summary = '';
+  cart.forEach(it=>{
+    const lineTotal = it.base * it.qty;
+    subtotal += lineTotal;
+    summary += `- ${it.name} x ${it.qty} = ₹${lineTotal}%0A`;
+  });
+  const total = subtotal + COMMISSION;
+  // Map link if coords
+  let mapLine = '';
+  if(coords){
+    const gmap = `https://www.google.com/maps/search/?api=1&query=${coords.latitude},${coords.longitude}`;
+    mapLine = `%0ALocation: ${coords.latitude.toFixed(6)},${coords.longitude.toFixed(6)}%0A${gmap}%0A`;
+  }
+  // Final message
+  let msg = `Hi DrinxExpress!%0AI'd like to place an order.%0A%0A*Customer:* ${encodeURIComponent(name)}%0A*Contact:* ${encodeURIComponent(phone)}%0A*Address:* ${encodeURIComponent(address)}%0A%0A*Order Summary:*%0A${summary}%0A*Subtotal:* ₹${subtotal}%0A*Commission:* ₹${COMMISSION}%0A*Total Payable:* ₹${total}%0A${mapLine}%0APlease confirm price & delivery time. Thank you!`;
+  // Open WhatsApp
   const url = `https://wa.me/${WA_NUMBER}?text=${msg}`;
   window.open(url, '_blank');
-});
+}
 
-// Clear
-document.getElementById('o_clear').addEventListener('click', function(){
-  document.getElementById('o_name').value=''; document.getElementById('o_phone').value=''; o_product.value=''; o_qty.value='1'; document.getElementById('o_area').value=''; document.getElementById('o_notes').value='';
-});
+// On load
+renderCart();
+saveCart();
 
+/* Utility: allow adding many SKUs quickly if you want (not used automatically) */
+function addSampleMany(){
+  for(let i=200;i<240;i++){
+    products.push({id:i,category:'liquor',name:`Sample Liquor ${i}`,base:999,img:'https://images.unsplash.com/photo-1604335399105-8b9b6b1b6f0b?auto=format&fit=crop&w=900&q=60'});
+  }
+  renderProducts();
+}
 </script>
 </body>
 </html>
-
