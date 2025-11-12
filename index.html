@@ -1,73 +1,361 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DrinxExpress | Navi Mumbai Liquor & Cigarette Delivery</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DrinxExpress — Fast Liquor & Cigarette Delivery | Navi Mumbai</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
-    body {background:#0f0f0f; color:#fff;}
-    header {background:#1b1b1b; padding:15px 25px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0;}
-    header h1 {color:#ff4646; font-size:1.5rem;}
-    nav a {color:#fff; margin-left:20px; text-decoration:none; font-weight:500;}
-    section.hero {height:70vh; background:url('https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?auto=format&fit=crop&w=1350&q=80') center/cover; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:20px;}
-    .hero h2 {font-size:2rem; background:rgba(0,0,0,0.5); padding:10px 20px; border-radius:10px;}
-    .hero p {margin-top:10px; font-size:1.1rem;}
-    .order-btn {margin-top:20px; background:#ff4646; color:#fff; padding:12px 25px; border:none; border-radius:30px; font-size:1.1rem; cursor:pointer; transition:0.3s;}
-    .order-btn:hover {background:#ff6a6a;}
-    section.products {padding:40px 20px; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:20px;}
-    .card {background:#1b1b1b; border-radius:15px; overflow:hidden; box-shadow:0 0 10px rgba(255,255,255,0.1);}
-    .card img {width:100%; height:180px; object-fit:cover;}
-    .card h3 {padding:10px 15px; font-size:1.2rem;}
-    .card p {padding:0 15px 15px; color:#aaa;}
-    footer {background:#111; text-align:center; padding:15px; font-size:0.9rem; color:#888;}
+    :root{
+      --bg:#0b0b0b;
+      --card:#0f0f10;
+      --muted:#cfcfcf;
+      --accent:#ff4646;
+      --gold:#d4af37;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+    }
+    *{box-sizing:border-box;font-family:'Poppins',sans-serif;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      background: linear-gradient(180deg,#060606 0%, #0b0b0b 100%);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+    }
+
+    /* Container */
+    .container{max-width:1100px;margin:0 auto;padding:20px;}
+
+    /* Header */
+    header.site-header{
+      display:flex;align-items:center;justify-content:space-between;padding:18px 0;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;
+    }
+    .logo{
+      width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ff8a5b);display:flex;align-items:center;justify-content:center;font-weight:800;color:#111;
+      box-shadow:0 6px 18px rgba(0,0,0,0.6);
+    }
+    .brand h1{font-size:1.1rem;letter-spacing:0.3px}
+    .brand p{font-size:0.75rem;color:var(--muted);margin-top:3px}
+
+    /* Hero */
+    .hero{
+      margin-top:18px;
+      display:grid;grid-template-columns:1fr;gap:18px;
+      align-items:center;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.55)),
+        url('https://images.unsplash.com/photo-1542223616-1b0f2f6d1b55?auto=format&fit=crop&w=1400&q=70') center/cover no-repeat;
+      padding:36px;border-radius:14px;position:relative;overflow:hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    }
+    .hero .left{padding:10px 14px;backdrop-filter: blur(6px);}
+    .hero h2{font-size:1.9rem;color:var(--gold);margin-bottom:8px}
+    .hero p{color:var(--muted);margin-bottom:14px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:10px;border:0;font-weight:700;cursor:pointer;
+      transition:transform .15s ease, box-shadow .15s ease;
+      text-decoration:none;color:#111;background:var(--gold);
+      box-shadow:0 8px 24px rgba(212,175,55,0.12);
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn.secondary{
+      background:transparent;color:var(--gold);border:1px solid rgba(212,175,55,0.12);backdrop-filter:blur(6px)
+    }
+
+    /* Order button accent */
+    .order-btn{
+      background: linear-gradient(90deg,var(--accent),#ff8a5b);
+      color:#fff;
+      box-shadow:0 12px 28px rgba(255,70,70,0.14);
+    }
+
+    /* Products grid */
+    .products{
+      margin-top:22px;
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;
+    }
+    .card{
+      background:linear-gradient(180deg,var(--card),#0b0b0b);
+      border-radius:12px;padding:12px;border:1px solid var(--glass-2);overflow:hidden;
+      box-shadow:0 6px 18px rgba(0,0,0,0.6);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,0.6)}
+    .card img{width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:10px}
+    .card h3{font-size:1rem;margin-bottom:6px}
+    .card p{color:var(--muted);font-size:0.9rem;margin-bottom:10px}
+    .card .price{font-weight:700;color:var(--gold);font-size:0.95rem}
+
+    /* Footer */
+    footer{margin-top:26px;text-align:center;color:var(--muted);padding:18px 8px;font-size:0.9rem}
+
+    /* Floating whatsapp */
+    .whatsapp-float{
+      position:fixed;right:18px;bottom:18px;width:60px;height:60px;border-radius:999px;background:linear-gradient(180deg,#25D366,#1DA851);
+      display:flex;align-items:center;justify-content:center;box-shadow:0 14px 26px rgba(0,0,0,0.5);z-index:60;cursor:pointer;border:3px solid rgba(255,255,255,0.06)
+    }
+    .whatsapp-float svg{width:28px;height:28px;fill:#fff}
+
+    /* Order modal / panel */
+    .order-panel{
+      position:fixed;right:18px;bottom:92px;width:360px;max-width:94%;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      border-radius:12px;padding:14px;box-shadow:0 18px 50px rgba(0,0,0,0.6);z-index:80;border:1px solid var(--glass);
+      display:none;flex-direction:column;gap:10px;
+    }
+    .order-panel header{display:flex;justify-content:space-between;align-items:center}
+    .order-panel h4{font-size:1rem}
+    .close-btn{background:transparent;border:0;color:var(--muted);font-weight:700;cursor:pointer}
+    .form-row{display:flex;gap:8px}
+    .form-row .col{flex:1}
+    .input,textarea,select{
+      width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);
+      background:transparent;color:#fff;font-size:0.95rem;outline:none;
+    }
+    textarea{min-height:80px;resize:vertical}
+    .small{font-size:0.8rem;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:720px){
+      .hero{padding:22px}
+      .hero h2{font-size:1.45rem}
+      .hero p{font-size:0.95rem}
+      .brand h1{font-size:1rem}
+      .order-panel{right:14px;left:14px;bottom:86px}
+    }
+
   </style>
 </head>
 <body>
-  <header>
-    <h1>DrinxExpress</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#menu">Menu</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <section class="hero" id="home">
-    <h2>Premium Liquor & Cigarette Delivery</h2>
-    <p>Fast, Reliable & Discreet delivery across Navi Mumbai.</p>
-    <button class="order-btn" onclick="window.open('https://wa.me/919324077245?text=Hi+DrinxExpress,+I+want+to+place+an+order','_blank')">
-      Order on WhatsApp
-    </button>
-  </section>
+  <div class="container">
 
-  <section class="products" id="menu">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1603052875534-7b0bca1c9f8e?auto=format&fit=crop&w=600&q=80" alt="Whisky">
-      <h3>Whisky Collection</h3>
-      <p>Premium imported & Indian whisky brands at best prices.</p>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1607083206969-4c715d2de1f0?auto=format&fit=crop&w=600&q=80" alt="Beer">
-      <h3>Cold Beer</h3>
-      <p>Freshly chilled beers delivered at your doorstep in minutes.</p>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1606313564200-13c596e2b3e3?auto=format&fit=crop&w=600&q=80" alt="Cigarettes">
-      <h3>Cigarettes</h3>
-      <p>Popular cigarette brands delivered quickly and safely.</p>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1590080875831-f6d51a0c6197?auto=format&fit=crop&w=600&q=80" alt="Wine">
-      <h3>Fine Wines</h3>
-      <p>Exclusive wines for special moments — available now.</p>
-    </div>
-  </section>
+    <header class="site-header">
+      <div class="brand">
+        <div class="logo">DX</div>
+        <div>
+          <h1>DrinxExpress</h1>
+          <p>Fast • Reliable • Discreet — Navi Mumbai</p>
+        </div>
+      </div>
 
-  <footer id="contact">
-    <p>© 2025 DrinxExpress | All Rights Reserved</p>
-    <p>Contact us on WhatsApp: <strong>9324077245</strong></p>
-  </footer>
+      <div>
+        <a class="btn secondary" href="#menu">Menu</a>
+      </div>
+    </header>
+
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="left">
+        <h2>Premium Liquor & Cigarette Delivery</h2>
+        <p>Fast, reliable & discreet delivery across Navi Mumbai. Order now — receive at your doorstep in minutes.</p>
+
+        <div class="cta-row">
+          <button class="btn order-btn" id="open-order">Order Now</button>
+          <a class="btn secondary" href="#menu">View Menu</a>
+        </div>
+        <p class="small" style="margin-top:10px">Open hours: 10:00 AM — 11:30 PM • Delivery fee based on location</p>
+      </div>
+    </section>
+
+    <section class="products" id="menu" aria-label="Products">
+      <!-- Card 1 -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1604335399105-8b9b6b1b6f0b?auto=format&fit=crop&w=800&q=60" alt="Whisky">
+        <h3>Whisky Collection</h3>
+        <p>Premium imported & Indian whisky brands at best prices.</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="price">From ₹1,199</div>
+          <button class="btn" onclick="prefillOrder('Whisky Collection')">Order</button>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=800&q=60" alt="Beer">
+        <h3>Cold Beer</h3>
+        <p>Freshly chilled beers delivered at your doorstep in minutes.</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="price">From ₹199</div>
+          <button class="btn" onclick="prefillOrder('Cold Beer')">Order</button>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1601597116254-1d9b6d6f6a5b?auto=format&fit=crop&w=800&q=60" alt="Cigarettes">
+        <h3>Cigarettes</h3>
+        <p>Popular cigarette brands delivered quickly and safely.</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="price">From ₹250</div>
+          <button class="btn" onclick="prefillOrder('Cigarettes')">Order</button>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=60" alt="Wine">
+        <h3>Wines</h3>
+        <p>Exclusive wines for special moments — available now.</p>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="price">From ₹999</div>
+          <button class="btn" onclick="prefillOrder('Wines')">Order</button>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      <div>© 2025 DrinxExpress • All Rights Reserved</div>
+      <div style="margin-top:6px" class="small">Contact on WhatsApp: <strong>+91 9324077245</strong></div>
+    </footer>
+
+  </div>
+
+  <!-- Floating WhatsApp button -->
+  <div class="whatsapp-float" id="whatsappBtn" title="Order on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.672.15-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.447-.52.149-.173.198-.297.298-.497.099-.198.05-.372-.025-.521-.074-.148-.672-1.611-.921-2.218-.243-.579-.487-.5-.672-.51l-.573-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487  .709.306 1.262.489 1.695.626.712.226 1.36.194 1.872.118.57-.085 1.758-.718 2.006-1.411.248-.694.248-1.289.173-1.411-.074-.123-.272-.198-.57-.347z"></path><path d="M20.52 3.48A11.917 11.917 0 0012 0C5.373 0 .002 5.373 0 12c0 2.112.554 4.077 1.605 5.845L0 24l6.42-1.605A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12 0-3.206-1.254-6.209-3.48-8.52z"></path></svg>
+  </div>
+
+  <!-- Order panel -->
+  <div class="order-panel" id="orderPanel" aria-hidden="true">
+    <header>
+      <h4>Place Order — DrinxExpress</h4>
+      <button class="close-btn" id="closeOrder">✕</button>
+    </header>
+
+    <div>
+      <label class="small">Your Name</label>
+      <input class="input" id="customerName" placeholder="e.g. Mukesh" />
+    </div>
+
+    <div>
+      <label class="small">Phone</label>
+      <input class="input" id="customerPhone" placeholder="10-digit mobile number" inputmode="numeric" />
+    </div>
+
+    <div>
+      <label class="small">Product</label>
+      <select class="input" id="productSelect">
+        <option value="">— Select product —</option>
+        <option>Whisky Collection</option>
+        <option>Cold Beer</option>
+        <option>Cigarettes</option>
+        <option>Wines</option>
+        <option>Other (Specify in Notes)</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="col">
+        <label class="small">Quantity</label>
+        <input class="input" id="quantity" type="number" min="1" value="1" />
+      </div>
+      <div class="col">
+        <label class="small">Area / Landmark</label>
+        <input class="input" id="area" placeholder="e.g. Vashi, near Big Bazaar" />
+      </div>
+    </div>
+
+    <div>
+      <label class="small">Additional Notes</label>
+      <textarea id="notes" placeholder="Any preferences, brand names etc."></textarea>
+    </div>
+
+    <div style="display:flex;gap:10px;">
+      <button class="btn order-btn" id="sendWhatsApp">Send Order on WhatsApp</button>
+      <button class="btn secondary" id="clearForm" style="min-width:110px">Clear</button>
+    </div>
+
+    <div class="small" style="margin-top:6px;color:var(--muted)">
+      Orders are placed via WhatsApp — please confirm details on chat. By ordering you agree to local laws and age restrictions.
+    </div>
+  </div>
+
+  <script>
+    // Config: change this number if you want another receiver
+    const WA_NUMBER = '919324077245'; // +91 9324077245 (as used in your site)
+
+    const whatsappBtn = document.getElementById('whatsappBtn');
+    const orderPanel = document.getElementById('orderPanel');
+    const openOrder = document.getElementById('open-order');
+    const closeOrder = document.getElementById('closeOrder');
+    const sendWhatsApp = document.getElementById('sendWhatsApp');
+    const clearForm = document.getElementById('clearForm');
+
+    // Open / close order panel
+    function showPanel(){
+      orderPanel.style.display = 'flex';
+      orderPanel.setAttribute('aria-hidden','false');
+    }
+    function hidePanel(){
+      orderPanel.style.display = 'none';
+      orderPanel.setAttribute('aria-hidden','true');
+    }
+
+    whatsappBtn.addEventListener('click', showPanel);
+    openOrder.addEventListener('click', showPanel);
+    closeOrder.addEventListener('click', hidePanel);
+
+    // Prefill helper when clicking Order on cards
+    function prefillOrder(product){
+      showPanel();
+      setTimeout(()=> {
+        document.getElementById('productSelect').value = product;
+      }, 120);
+    }
+    window.prefillOrder = prefillOrder;
+
+    // Validate and build wa.me link
+    sendWhatsApp.addEventListener('click', function(){
+      const name = document.getElementById('customerName').value.trim();
+      const phone = document.getElementById('customerPhone').value.replace(/\D/g,'').trim();
+      const product = document.getElementById('productSelect').value.trim();
+      const qty = document.getElementById('quantity').value.trim();
+      const area = document.getElementById('area').value.trim();
+      const notes = document.getElementById('notes').value.trim();
+
+      // Basic validation
+      if(!name){ alert('Please enter your name'); return; }
+      if(!phone || phone.length < 10){ alert('Please enter a valid 10-digit phone number'); return; }
+      if(!product){ alert('Please select a product'); return; }
+
+      // Construct message
+      let message = `Hi DrinxExpress!%0AI'd like to place an order.%0A%0A*Customer:* ${encodeURIComponent(name)}%0A*Mobile:* ${encodeURIComponent(phone)}%0A*Product:* ${encodeURIComponent(product)}%0A*Quantity:* ${encodeURIComponent(qty)}%0A*Area:* ${encodeURIComponent(area)}%0A`;
+      if(notes) message += `%0A*Notes:* ${encodeURIComponent(notes)}%0A`;
+
+      message += `%0APlease confirm price and delivery time. Thank you!`;
+
+      const url = `https://wa.me/${WA_NUMBER}?text=${message}`;
+
+      // Open in new tab
+      window.open(url, '_blank');
+    });
+
+    clearForm.addEventListener('click', function(){
+      document.getElementById('customerName').value = '';
+      document.getElementById('customerPhone').value = '';
+      document.getElementById('productSelect').value = '';
+      document.getElementById('quantity').value = '1';
+      document.getElementById('area').value = '';
+      document.getElementById('notes').value = '';
+    });
+
+    // Close panel if clicked outside (mobile friendly)
+    document.addEventListener('click', function(e){
+      const inside = orderPanel.contains(e.target) || whatsappBtn.contains(e.target) || openOrder.contains(e.target);
+      if(!inside){
+        // hidePanel(); // keep commented so user doesn't accidentally close
+      }
+    });
+
+  </script>
 </body>
 </html>
+
